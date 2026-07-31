@@ -1,0 +1,93 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 22,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "spacing": 0,
+
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["power-profiles-daemon", "cpu", "memory", "temperature", "network", "pulseaudio", "battery", "tray"],
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate"
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 50,
+        "separate-outputs": true
+    },
+
+    "clock": {
+        "format": "{:%H:%M:%S}",
+        "interval": 1,
+        "format-alt": "{:%A, %d %B %Y}",
+        "tooltip-format": "{:%Y-%m-%d}"
+    },
+
+    "cpu": {
+        "format": "cpu {usage}%",
+        "interval": 5,
+        "tooltip": false
+    },
+
+    "memory": {
+        "format": "mem {percentage}%",
+        "interval": 5,
+        "tooltip": false
+    },
+
+    "temperature": {
+        "thermal-zone": 0,
+        "critical-threshold": 80,
+        "format": "temp {temperatureC}c",
+        "tooltip": false
+    },
+
+    "network": {
+        "format-wifi": "wifi {signalStrength}%",
+        "format-ethernet": "eth {ifname}",
+        "format-disconnected": "offline",
+        "tooltip-format-wifi": "{essid} {signalStrength}%",
+        "tooltip-format-ethernet": "{ifname}"
+    },
+
+    "pulseaudio": {
+        "format": "vol {volume}%",
+        "format-muted": "muted",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+        "tooltip": false
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "bat {capacity}%",
+        "format-charging": "bat {capacity}% chg",
+        "tooltip": false
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "power profile: {profile}\nclick to cycle",
+        "format-icons": {
+            "default": "perf",
+            "performance": "perf",
+            "balanced": "bal",
+            "power-saver": "save"
+        }
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 8
+    }
+}
